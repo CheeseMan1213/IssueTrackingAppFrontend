@@ -1,0 +1,7 @@
+{
+  "name": "issue-tracking-app-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
