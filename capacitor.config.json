@@ -1,9 +1,14 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.james2ch9developer.issue-tracking-app-frontend",
   "appName": "issue-tracking-app-frontend",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
+  "server": {
+    "allowNavigation": [
+        "www.app.james2ch9developer.com"
+      ]
+  },
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
