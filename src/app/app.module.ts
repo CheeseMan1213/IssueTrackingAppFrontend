@@ -14,12 +14,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 // This app's imports.
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { TestModelComponent } from './test-model/test-model.component'
 
 @NgModule({
   // 'declarations' brings in the stuff that I make.
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TestModelComponent
   ],
   entryComponents: [],
   // 'imports' brings in the stuff I bring in from elsewhere.
@@ -28,9 +30,12 @@ import { HomeComponent } from './home/home.component';
     IonicModule.forRoot(),
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: '**', redirectTo: 'home', pathMatch: 'full' }
+      { path: 'test-model', component: TestModelComponent },
+      { path: '', redirectTo: 'test-model', pathMatch: 'full' },
+      { path: '**', redirectTo: 'test-model', pathMatch: 'full' }
     ]),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     StatusBar,
