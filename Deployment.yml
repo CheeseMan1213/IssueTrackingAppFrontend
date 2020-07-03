@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: issue-tracking-frontend-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: issue-tracking-frontend
+  template:
+    metadata:
+      labels:
+        app: issue-tracking-frontend
+    spec:
+      containers:
+      - name: hello-pod
+        image: issue-tracking-app-frontend:1.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8100
