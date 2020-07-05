@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: issue-tracking-frontend-pod
-        image: 475640621870.dkr.ecr.us-east-1.amazonaws.com/issue-tracking-ecr-repo:build-657a8e1d-26e1-45df-840a-561285f211c9
+        image: 475640621870.dkr.ecr.us-east-1.amazonaws.com/issue-tracking-ecr-repo:build-9fc53959-e307-4eac-b4c8-613832a4fe6e
         imagePullPolicy: Always
         ports:
         - containerPort: 8100
