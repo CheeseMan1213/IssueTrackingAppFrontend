@@ -13,8 +13,8 @@ spec:
         app: issue-tracking-frontend
     spec:
       containers:
-      - name: hello-pod
-        image: issue-tracking-app-frontend:1.0
-        imagePullPolicy: Never
+      - name: issue-tracking-frontend-pod
+        image: 475640621870.dkr.ecr.us-east-1.amazonaws.com/issue-tracking-ecr-repo:build-657a8e1d-26e1-45df-840a-561285f211c9
+        imagePullPolicy: Always
         ports:
         - containerPort: 8100
