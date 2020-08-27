@@ -26,7 +26,4 @@ phases:
       - printf '[{"name":"frontend_task_5","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
-  files:
-    - "**/*"
-  discard-paths: no
-  base-directory: dist
+    files: imagedefinitions.json
