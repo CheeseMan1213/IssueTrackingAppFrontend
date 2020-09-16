@@ -9,7 +9,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class TestModelService {
 
-  private _testModelURL = 'https://www.app.james2ch9developer.com:8443/testApi/TestModels'
+  private _testModelURL = 'https://app.james2ch9developer.com:8443/testApi/TestModels'
 
   constructor(private http: HttpClient) {
     //
