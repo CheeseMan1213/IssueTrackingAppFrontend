@@ -61,22 +61,30 @@ Someone shows interest, so they take a look at the code which will give some kno
 
 # Terraform infrastructure:
 
-You are going to want to make sure you have your own AWS account. Account created, credit card given, the approximate 4 to 24 hours waited on so you can create EC2 instances. Please test it. If you can successfully create an EC2 instance, then you are good. While you are waiting for the AWS account to finish initializing, go ahead and install the terraform CLI on your system, and fork then clone the repo. There will be a file called “terraform.tfvars.example”, you will need to remove the “.example” part of the file so that way it just says “terraform.tfvars”. You will then need to add your own AWS IAM access key and secret key. You will need to make sure that the IAM user has all the permissions it needs to create and manage all the resources to be created. I’m pretty sure there’s going to be two or three more things that you should add to that file as well, but you should be able to leave mostly the later half of it alone at least to get the code running initially, you can always mess with it later.
+You are going to want to make sure you have your own AWS account. Account created, credit card given, the approximate 4 to 24 hours waited on so you can create EC2 instances. Please test it. If you can successfully create an EC2 instance, then you are good. While you are waiting for the AWS account to finish initializing, go ahead and install the terraform CLI on your system, and fork then clone the repo. There will be a file called “terraform.tfvars.example”, you will need to remove the “.example” part of the file so that way it just says “terraform.tfvars”. You will then need to add your own AWS IAM access key and secret key. You will need to make sure that the IAM user has all the permissions it needs to create and manage all the resources to be created. You will need to create and switch to a 'terraform workspace' called 'Development'. (See commands) I’m pretty sure there’s going to be two or three more things that you should add to that file as well, but you should be able to leave mostly the later half of it alone at least to get the code running initially, you can always mess with it later.
 Next you will need to run the terraform commands:
 
-For Ubuntu, Terraform will require the HashiCorp repo, which is not standard in apt-get at this time. And, this method of installation in trustworthy becasue, thought it is not there by default, it is first party becasue it is coming from HashiCorp, the creaters of the Terraform tool.
+For Ubuntu, Terraform will require the HashiCorp repo, which is not standard in apt-get at this time. And, this method of installation is trustworthy because, though it is not there by default, it is first party because it is coming from HashiCorp, the creaters of the Terraform tool.
 Check the URLs if you do not trust me.
 
 Tutorial found here:
 https://learn.hashicorp.com/tutorials/terraform/install-cli
 
-### Note: If HashiCorp made updates to their turotial, then these lines may have changed.
+### Note: If HashiCorp made updates to their tutorial, then these lines may have changed.
 
 `curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -`
 
 `sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main”`
 
 `sudo apt-get update && sudo apt-get install terraform`
+
+`git clone https://github.com/CheeseMan1213/IssueTrackingAppInfrastructure.git`
+
+`cd IssueTrackingAppInfrastructure`
+
+`terraform workspace new Development`
+
+`terraform workspace select Development`
 
 `terraform init`
 
@@ -103,6 +111,6 @@ There is approximately 45-ish resources that my terraform code will try to creat
 
 Once all three pieces are set up and at least partially running I’m sure there will still be some things you need to do, for example you will need to get the database URL and give that to the backend code because it will not be the same as mine, same for the Redis cache url. You will need to modify the backend access URL that the frontend has in the angular service file, because you will not have the same domain name as me.
 
-The next files that are worth paying attention to, are the Dockerfiles, the buildspec.yml files. These are locates at the root of the projects. And, the Dockerrun.aws.json file -> located at “Elastic_Beanstalk_CLI_Root/Dockerrun.aws.json” inside the Infrastructure repo. The Dockerfiles are needed to build images that run containers. The buildspec.yml is the file that AWS CodeBuild uses in order to do this. Basically, AWS CodeBuild uses a specual purpose enviornment/OS to create images. The buildspec.yml file tell this OS what to do and will need the Dockerfile too. And, the Dockerrun.aws.json is needed for Elastic Beanstalk Mutli-Container Docker.
+The next files that are worth paying attention to, are the Dockerfiles, the buildspec.yml files. These are located at the root of the projects. And, the Dockerrun.aws.json file -> located at “Elastic_Beanstalk_CLI_Root/Dockerrun.aws.json” inside the Infrastructure repo. The Dockerfiles are needed to build images that run containers. The buildspec.yml is the file that AWS CodeBuild uses in order to do this. Basically, AWS CodeBuild uses a special purpose enviornment/OS to create images. The buildspec.yml file tell this OS what to do and will need the Dockerfile too. And, the Dockerrun.aws.json is needed for Elastic Beanstalk Multi-Container Docker.
 
 Now you probably have a ton of AWS resources built in your AWS account and it will be beneficial for you to be aware of them if for no other reason, so that way you can know why you were being charged some money if that begins to happen. Creating my env in your account will NOT keep you in the AWS Free Tier.
