@@ -1,3 +1,5 @@
+# This is a Kubernetes file. This is a deployment file, and this is the file that pulls from
+# a Docker repository.
 apiVersion: apps/v1
 kind: Deployment
 metadata:

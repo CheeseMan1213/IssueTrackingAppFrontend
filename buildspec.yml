@@ -1,5 +1,6 @@
+# This file is required for AWS CodeBuild. In a nutshell, It is the set of commands to run
+# in a CodeBuild environment/OS to go from Dockerfile to Docker image.
 version: 0.2
-
 
 phases:
   pre_build:

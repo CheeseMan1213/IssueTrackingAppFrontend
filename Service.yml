@@ -1,3 +1,5 @@
+# This is a Kubernetes file. This is a service file, and it is responsible
+# for managing ports over one or more deployments and helping the port stay static.
 apiVersion: v1
 kind: Service
 metadata:

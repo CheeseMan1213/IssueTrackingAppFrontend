@@ -1,3 +1,7 @@
+/*
+    This is the model file for my TestModel. To use a Java reference,
+    this is like the @Entity file.
+*/
 export interface ITestModel {
     id: number;
     firstName: string;

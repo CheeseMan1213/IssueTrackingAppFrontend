@@ -1,3 +1,7 @@
+/*
+  This is an Angular Service file. This file is what makes my HTTP requests to the backend
+  happen.
+*/
 import { Injectable } from '@angular/core';
 import { ITestModel } from './test-model/test-model.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
