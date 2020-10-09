@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ITestModel } from './test-model.model';
-import { TestModelService } from '../test-model.service'
+import { TestModelService } from '../test-model.service';
 
 @Component({
   selector: 'app-test-model',
@@ -10,9 +10,9 @@ import { TestModelService } from '../test-model.service'
 export class TestModelComponent implements OnInit {
 
   testModels: ITestModel[] = [];
-  test_1: ITestModel;
-  test_2: ITestModel;
-  test_3: ITestModel;
+//  test_1: ITestModel;
+//  test_2: ITestModel;
+//  test_3: ITestModel;
   errorMessage: string;
 
   constructor(private testModelService: TestModelService) {
