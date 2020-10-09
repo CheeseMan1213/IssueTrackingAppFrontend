@@ -12,6 +12,7 @@ pipeline {
                 }
                 dir('IssueTrackingAppFrontend'){
                     git url: 'https://github.com/CheeseMan1213/IssueTrackingAppFrontend.git', branch: 'master'
+                    sh 'npm install'
                 }
             }
         }
