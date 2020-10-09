@@ -21,9 +21,9 @@ pipeline {
         }
     }
     /*** workspace clean up*/
-    post {
+    /*post {
         always {
             cleanWs()
         }
-    }   
+    }*/   
 }
