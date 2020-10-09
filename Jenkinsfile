@@ -15,6 +15,18 @@ pipeline {
                 }
             }
         }
+        stage('linter') {
+            steps {
+                echo 'Linting source...'
+                dir('IssueTrackingAppBackend'){
+                    echo 'Linting Backend...'
+                }
+                dir('IssueTrackingAppFrontend'){
+                    echo 'Linting Frontend...'
+                    sh 'ng lint'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building...'
