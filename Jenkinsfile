@@ -18,4 +18,10 @@ pipeline {
             }
         }
     }
+    /*** workspace clean up*/
+    post {
+        always {
+            cleanWs()
+        }
+    }   
 }
