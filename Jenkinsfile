@@ -8,6 +8,7 @@ pipeline {
             steps {
                 echo 'Getting source...'
                 git url: 'https://github.com/CheeseMan1213/IssueTrackingAppFrontend.git', branch: 'master'
+                git url: 'https://github.com/CheeseMan1213/IssueTrackingAppBackend.git', branch: 'master'
             }
         }
         stage('Build') {
