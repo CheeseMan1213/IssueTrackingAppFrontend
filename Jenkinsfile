@@ -3,6 +3,7 @@ pipeline {
     options {
         skipDefaultCheckout true
     }
+    tools {nodejs "node"}
     stages {
         stage('source') {
             steps {
