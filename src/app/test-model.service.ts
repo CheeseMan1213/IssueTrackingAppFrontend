@@ -13,14 +13,14 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class TestModelService {
 
-  private _testModelURL = 'https://app.james2ch9developer.com:8443/testApi/TestModels'
+  private testModelURL = 'https://app.james2ch9developer.com:8443/testApi/TestModels';
 
   constructor(private http: HttpClient) {
     //
   }
 
   getAllTestModels(): Observable<ITestModel[]> {
-    return this.http.get<ITestModel[]>(this._testModelURL).pipe(
+    return this.http.get<ITestModel[]>(this.testModelURL).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
