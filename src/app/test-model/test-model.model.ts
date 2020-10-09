@@ -9,5 +9,5 @@ export interface ITestModel {
     email: string;
 }
 function toString(ITestModelObj: ITestModel) {
-    console.log(`${ITestModelObj.id}, ${ITestModelObj.firstName}, ${ITestModelObj.lastName}, ${ITestModelObj.email}`)
+    console.log(`${ITestModelObj.id}, ${ITestModelObj.firstName}, ${ITestModelObj.lastName}, ${ITestModelObj.email}`);
 }
