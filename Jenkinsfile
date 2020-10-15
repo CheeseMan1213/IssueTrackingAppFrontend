@@ -6,7 +6,7 @@ pipeline {
     tools {
         nodejs 'node'
         jdk 'jdk11'
-	}
+    }
     stages {
         stage('source') {
             steps {
