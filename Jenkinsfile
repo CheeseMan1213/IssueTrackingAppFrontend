@@ -22,7 +22,7 @@ pipeline {
                 echo 'Linting source...'
                 dir('IssueTrackingAppBackend'){
                     echo 'Linting Backend...'
-					sh './gradlew checkstyleMain'
+                    sh './gradlew checkstyleMain'
                 }
                 dir('IssueTrackingAppFrontend'){
                     echo 'Linting Frontend...'
