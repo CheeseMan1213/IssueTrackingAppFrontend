@@ -4,8 +4,8 @@ pipeline {
         skipDefaultCheckout true
     }
     tools {
-		nodejs 'node'
-		jdk 'jdk11'
+        nodejs 'node'
+        jdk 'jdk11'
 	}
     stages {
         stage('source') {
