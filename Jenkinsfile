@@ -26,6 +26,7 @@ pipeline {
                 dir('IssueTrackingAppBackend'){
                     echo 'Linting Backend...'
                     sh './gradlew checkstyleMain'
+                    sh './gradlew pmdMain'
                 }
                 dir('IssueTrackingAppFrontend'){
                     echo 'Linting Frontend...'
