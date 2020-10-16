@@ -42,7 +42,7 @@ pipeline {
                     echo 'Building backend...'
                     sh './gradlew build'
                 }
-				dir('IssueTrackingAppFrontend'){
+                dir('IssueTrackingAppFrontend'){
                     echo 'Building frontend...'
                 }
             }
