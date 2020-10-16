@@ -38,7 +38,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh './gradlew build'
+                dir('IssueTrackingAppBackend'){
+                    echo 'Building backend...'
+                    sh './gradlew build'
+                }
+				dir('IssueTrackingAppFrontend'){
+                    echo 'Building frontend...'
+                }
             }
         }
         stage('Test') {
