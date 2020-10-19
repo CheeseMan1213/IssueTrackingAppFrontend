@@ -1,12 +1,21 @@
 pipeline {
     agent any
+
     options {
         skipDefaultCheckout true
     }
+    
     tools {
         nodejs 'node'
         jdk 'jdk11'
     }
+    
+    environmant {
+        dockerImage = ''
+        registry = 'cheeseman1213/testFrontend'
+        registryCredential = 'dockerhub_id'
+	}
+     
     stages {
         stage('source') {
             steps {
@@ -41,6 +50,9 @@ pipeline {
                 dir('IssueTrackingAppBackend'){
                     echo 'Building backend...'
                     sh './gradlew build'
+                    script {
+                        dockerImage = docker.build registry
+                    }
                 }
                 dir('IssueTrackingAppFrontend'){
                     echo 'Building frontend...'
