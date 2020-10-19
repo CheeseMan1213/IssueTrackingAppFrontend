@@ -10,7 +10,7 @@ pipeline {
         jdk 'jdk11'
     }
     
-    environmant {
+    environment {
         dockerImage = ''
         registry = 'cheeseman1213/testFrontend'
         registryCredential = 'dockerhub_id'
