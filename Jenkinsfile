@@ -53,6 +53,9 @@ pipeline {
                     sh './gradlew build'
                     script {
                         dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                        docker.withRegistry( '', registryCredential ) {
+                            dockerImage.push()
+                        }
                     }
                 }
                 dir('IssueTrackingAppFrontend'){
