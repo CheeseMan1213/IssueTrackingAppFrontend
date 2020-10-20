@@ -15,7 +15,7 @@ pipeline {
         dockerImage = ''
         registry = 'cheeseman1213/test-frontend'
         registryCredential = 'dockerhub_id'
-	}
+    }
      
     stages {
         stage('source') {
