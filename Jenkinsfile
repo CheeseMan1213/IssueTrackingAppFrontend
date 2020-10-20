@@ -52,7 +52,7 @@ pipeline {
                     echo 'Building backend...'
                     sh './gradlew build'
                     script {
-                        dockerImage = docker.build registry
+                        dockerImage = docker.build registry + ":$BUILD_NUMBER"
                     }
                 }
                 dir('IssueTrackingAppFrontend'){
