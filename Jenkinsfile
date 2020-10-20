@@ -13,7 +13,8 @@ pipeline {
     
     environment {
         dockerImage = ''
-        registry = 'cheeseman1213/test-frontend'
+        registry_backend = 'cheeseman1213/issue-tracking-app-backend'
+        registry_fronend = 'cheeseman1213/issue-tracking-app-frontend'
         registryCredential = 'dockerhub_id'
     }
      
@@ -52,7 +53,7 @@ pipeline {
                     echo 'Building backend...'
                     sh './gradlew build'
                     script {
-                        dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                        dockerImage = docker.build registry_backend + ":$BUILD_NUMBER"
                         docker.withRegistry( '', registryCredential ) {
                             dockerImage.push()
                         }
@@ -60,6 +61,12 @@ pipeline {
                 }
                 dir('IssueTrackingAppFrontend'){
                     echo 'Building frontend...'
+                    script {
+                        dockerImage = docker.build registry_fronend + ":$BUILD_NUMBER"
+                        docker.withRegistry( '', registryCredential ) {
+                            dockerImage.push()
+                        }
+                    }
                 }
             }
         }
