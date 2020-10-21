@@ -27,6 +27,9 @@ pipeline {
                     git url: 'https://github.com/CheeseMan1213/IssueTrackingAppFrontend.git', branch: 'master'
                     sh 'npm install'
                 }
+                dir('IssueTrackingAppInfrastructure'){
+                    git url: 'https://github.com/CheeseMan1213/IssueTrackingAppInfrastructure.git', branch: 'master'
+                }
             }
         }
         stage('linter') {
@@ -76,6 +79,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
+                dir('IssueTrackingAppInfrastructure/Elastic_Beanstalk_CLI_Root'){
+                    echo 'Delpoying to AWS Elastic Beanstalk'
+                    sh 'eb init --region us-east-1 --platform Docker issue-tracking-eb-app'
+                    sh 'eb deploy'
+                }
             }
         }
     }
