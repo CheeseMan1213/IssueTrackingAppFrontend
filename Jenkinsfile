@@ -6,8 +6,6 @@ pipeline {
     }
     
     tools {
-        nodejs 'node'
-        jdk 'jdk11'
         dockerTool 'docker'
     }
     
