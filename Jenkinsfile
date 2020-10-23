@@ -54,7 +54,7 @@ pipeline {
                     echo 'Building backend...'
                     sh './gradlew build'
                     script {
-                        dockerImage = docker.build registry_backend
+                        dockerImage = docker.build registry_backend + ":$BUILD_NUMBER"
                         docker.withRegistry( '', registryCredential ) {
                             dockerImage.push()
                         }
@@ -63,7 +63,7 @@ pipeline {
                 dir('IssueTrackingAppFrontend'){
                     echo 'Building frontend...'
                     script {
-                        dockerImage = docker.build registry_fronend
+                        dockerImage = docker.build registry_fronend + ":$BUILD_NUMBER"
                         docker.withRegistry( '', registryCredential ) {
                             dockerImage.push()
                         }
