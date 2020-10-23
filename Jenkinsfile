@@ -81,7 +81,7 @@ pipeline {
                 echo 'Deploying...'
                 dir('IssueTrackingAppInfrastructure/Elastic_Beanstalk_CLI_Root'){
                     echo 'Delpoying to AWS Elastic Beanstalk'
-					sh '../generate.sh $BUILD_NUMBER > Dockerrun.aws.json'
+                    sh '../generate.sh $BUILD_NUMBER > Dockerrun.aws.json'
                     sh 'eb init --region us-east-1 --platform Docker issue-tracking-eb-app'
                     sh 'eb deploy'
                 }
